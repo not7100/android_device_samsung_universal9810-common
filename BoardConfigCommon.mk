@@ -128,4 +128,4 @@ endif
 TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)/releasetools
 
 # Inherit from the proprietary version
--include vendor/samsung/universal9810-common/BoardConfigVendor.mk
+#-include vendor/samsung/universal9810-common/BoardConfigVendor.mk

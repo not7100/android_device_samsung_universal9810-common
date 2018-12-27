@@ -1,7 +1,7 @@
+import init.samsung.rc
 import init.samsungexynos9810.usb.rc
 import init.gps.rc
 import init.baseband.rc
-import init.carrier.rc
 
 on early-init
     mkdir /efs 0771 radio system
