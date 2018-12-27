@@ -20,7 +20,7 @@ TARGET_CPU_VARIANT := cortex-a53
 
 # Secondary Architecture
 TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
@@ -28,8 +28,8 @@ TARGET_2ND_CPU_VARIANT := cortex-a53
 # Kernel
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_SOURCE := kernel/samsung/universal9810
-TARGET_KERNEL_CLANG_COMPILE := true
 
 # Image
 BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
@@ -106,7 +106,7 @@ endif
 
 # Shims
 TARGET_LD_SHIM_LIBS := \
-    /vendor/lib/hw/audio.primary.universal9810.so|libshim_audio.so
+    /vendor/lib/hw/audio.primary.universal9810.so|/system/lib/libshim_audio.so
 
 # Include
 TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
@@ -120,8 +120,8 @@ BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(COMMON_PATH)/sepolicy/private
 
 # Lineage hardware
 ifneq ($(findstring lineage, $(TARGET_PRODUCT)),)
-BOARD_HARDWARE_CLASS := \
-    hardware/samsung/lineagehw
+JAVA_SOURCE_OVERLAYS := \
+    org.lineageos.hardware|hardware/samsung/lineagehw|**/*.java
 endif
 
 # Releasetools
