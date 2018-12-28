@@ -37,9 +37,6 @@ PRODUCT_PACKAGES += \
 # Treble
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 
-# VNDK
-PRODUCT_PACKAGES += vndk_package
-
 # SP-NDK
 PRODUCT_PACKAGES += \
     libvulkan
@@ -50,9 +47,11 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 USE_XML_AUDIO_POLICY_CONF := 1
+
 PRODUCT_PACKAGES += \
-    libshim_audio \
     audioloader
+#    libshim_audio
+
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:system/etc/usb_audio_policy_configuration.xml
 
@@ -101,4 +100,4 @@ PRODUCT_COPY_FILES += \
 -include $(LOCAL_PATH)/system_prop.mk
 
 # Call proprietary blob setup
-#$(call inherit-product, vendor/samsung/universal9810-common/universal9810-common-vendor.mk)
+$(call inherit-product, vendor/samsung/universal9810-common/universal9810-common-vendor.mk)
