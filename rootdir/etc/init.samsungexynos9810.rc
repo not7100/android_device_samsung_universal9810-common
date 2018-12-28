@@ -837,8 +837,6 @@ on boot
 
 on fs
     mount_all /fstab.samsungexynos9810
-    setprop ro.crypto.fde_algorithm AES-256-XTS-DISK
-    setprop ro.crypto.fuse_sdcard true
     chown radio system /efs
     restorecon_recursive /efs
 
@@ -1018,19 +1016,6 @@ service abox /vendor/bin/main_abox 17c50000.abox /data/vendor/log/abox
     user audioserver
     group system
 
-# ICD
-service prepare_param /system/bin/prepare_param.sh /dev/block/platform/11120000.ufs/by-name/PARAM
-    class core
-    user root
-    group root
-    seclabel u:r:prepare_param:s0
-    oneshot
-
-# Set watchdog timer to 40 seconds and pet it every 10 seconds to get a 30 second margin
-service watchdogd /sbin/watchdogd 10 30
-    class core
-    seclabel u:r:watchdogd:s0
-
 # on userdebug and eng builds, enable kgdb on the serial console
 on property:ro.debuggable=1
     write /sys/module/kgdboc/parameters/kgdboc ttyFIQ1
@@ -1048,23 +1033,6 @@ on property:ro.bootmode=charger
     chmod 0660 /efs/usb_hw_param/usb_hw_param.log
     mkdir /efs/lpm 0775 system system
     class_start sec-charger
-
-# umount service
-service umount_service /system/bin/umount -D /preload
-    disabled
-    seclabel u:r:umount_service:s0
-    oneshot
-
-# sem_daemon
-service sem_daemon /system/bin/sem_daemon
-    class core
-    user system
-    group system nfc
-    disabled
-
-on property:sys.boot_completed=1
-    setprop security.semdaemonfinish 0
-    start sem_daemon
 
     swapon_all /fstab.${ro.hardware}
 
@@ -1093,18 +1061,6 @@ on property:persist.sys.storage_preload=1
 
 on property:persist.sys.storage_preload=0
     start umount_service
-
-# irisd
-    service irisd /system/bin/irisd
-    class late_start
-    user system
-    group system
-
-# faced
-    service faced /system/bin/faced
-    class late_start
-    user system
-    group system
 
 # SSWAP
 service swapon /sbin/sswap -s -f 2048
