@@ -38,6 +38,9 @@ PRODUCT_PACKAGES += \
 # Treble
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 
+# VNDK
+PRODUCT_PACKAGES += vndk_package
+
 # SP-NDK
 PRODUCT_PACKAGES += \
     libvulkan
