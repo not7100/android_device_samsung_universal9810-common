@@ -35,12 +35,6 @@ PRODUCT_PACKAGES += \
     ueventd.samsungexynos9810.rc \
     loggy.sh
 
-# Treble
-PRODUCT_FULL_TREBLE_OVERRIDE := true
-
-# VNDK
-PRODUCT_PACKAGES += vndk_package
-
 # SP-NDK
 PRODUCT_PACKAGES += \
     libvulkan
