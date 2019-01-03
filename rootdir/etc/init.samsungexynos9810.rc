@@ -1001,12 +1001,6 @@ on fs
 # ARGOSD network_throughput
     chown system system /dev/network_throughput
 
-# Loggy
-service loggy /system/bin/sh /loggy.sh
-    class main
-    user root
-    oneshot
-
 service fuse_sdcard /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard /storage/sdcard
     class late_start
     disabled

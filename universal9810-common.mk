@@ -32,8 +32,7 @@ PRODUCT_PACKAGES += \
     init.samsungexynos9810.rc \
     init.samsungexynos9810.usb.rc \
     init.baseband.rc \
-    ueventd.samsungexynos9810.rc \
-    loggy.sh
+    ueventd.samsungexynos9810.rc
 
 # SP-NDK
 PRODUCT_PACKAGES += \
