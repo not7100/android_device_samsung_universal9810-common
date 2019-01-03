@@ -43,6 +43,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/compatibility_matrix.xml:system/compatibility_matrix.xml
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/vndk-compat/vndk-compat.rc:system/etc/init/vndk-compat.rc
+
 # Audio
 USE_XML_AUDIO_POLICY_CONF := 1
 
