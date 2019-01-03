@@ -41,9 +41,6 @@ PRODUCT_PACKAGES += \
 
 # HIDL
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/compatibility_matrix.xml:system/compatibility_matrix.xml
-
-PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vndk-compat/vndk-compat.rc:system/etc/init/vndk-compat.rc
 
 # Audio
