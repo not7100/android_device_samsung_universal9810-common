@@ -2,6 +2,9 @@
 lib64/libaptX_encoder.so
 lib64/libaptXHD_encoder.so
 
+# audio lib
+lib/hw/audio.primary.universal9810.so|9ac3b5cdd59bc3eb9c5f3e2ef15c95c242cf1f55
+
 # OK Google
 -priv-app/HotwordEnrollmentOKGoogleCORTEXM4/HotwordEnrollmentOKGoogleCORTEXM4.apk;PRESIGNED|2e9d834958ae9a823ae748251ab7f0f3b8855fc4
 -priv-app/HotwordEnrollmentXGoogleCORTEXM4/HotwordEnrollmentXGoogleCORTEXM4.apk;PRESIGNED|1ef01fe32d1eebb2c2386686d11bd3c049944706
